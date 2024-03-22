@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %} 
+ 
+{% block title %}{{ parent() }} Page de bienvenue{% endblock %} 
+ 
+{% block body %} 
+    <h1>Page de bienvenue</h1> 
+    <p>Bienvenue sur le site de l'association <strong>Les Amis du Louvre</strong>.</p> 
+    <p>Vous pouvez vous connecter en cliquant sur le lien ci-dessous.</p> 
+    <p><a href="{{ path('security_login') }}">Connexion</a></p>
+
+{% endblock %} 
