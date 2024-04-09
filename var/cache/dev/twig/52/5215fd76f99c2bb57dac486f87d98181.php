@@ -87,6 +87,6 @@ class __TwigTemplate_12d1a075da0c555940d2cb56b4528b2b extends Template
         return new Source("<div class=\"d-flex flex-row justify-content-center m-5\"> 
 <h1>{{ 'Nos produits' }}</h1> 
 </div> 
-{% include 'alert.html.twig' %} ", "header.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\header.html.twig");
+{% include 'alert.html.twig' %} ", "header.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\header.html.twig");
     }
 }

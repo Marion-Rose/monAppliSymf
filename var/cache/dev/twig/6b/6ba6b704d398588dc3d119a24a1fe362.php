@@ -148,6 +148,6 @@ class __TwigTemplate_1bbc1c83a931be0648fef03ad9fa60eb extends Template
         </button> 
     </turbo-frame> 
 {% endblock %} 
-", "test/index.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\test\\index.html.twig");
+", "test/index.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\test\\index.html.twig");
     }
 }

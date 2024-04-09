@@ -75,6 +75,6 @@ class __TwigTemplate_bfaf7871dc325cc2d19e24ffdf042ff1 extends Template
     <path stroke=\"none\" d=\"M0 0h24v24H0z\" fill=\"none\"/>
     <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"2\" />
 </svg>
-", "@WebProfiler/Icon/settings-width-fixed.svg", "C:\\wamp64\\www\\monAppliSymf - Copie\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\settings-width-fixed.svg");
+", "@WebProfiler/Icon/settings-width-fixed.svg", "C:\\wamp64\\www\\monAppliSymf\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\settings-width-fixed.svg");
     }
 }

@@ -1,18 +1,16 @@
 <?php 
-namespace App\Form; 
- 
-use App\Entity\Produit; 
-use Symfony\Component\Form\AbstractType; 
-use Symfony\Component\Form\FormBuilderInterface; 
-use Symfony\Component\OptionsResolver\OptionsResolver; 
- 
-use Symfony\Component\Form\Extension\Core\Type\TextType; 
-use Symfony\Component\Form\Extension\Core\Type\NumberType;  
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;  
-use Symfony\Component\Form\Extension\Core\Type\FileType; 
- 
-use Symfony\Component\Form\CallbackTransformer; 
- 
+namespace App\Form;
+
+use App\Entity\Produit;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+
 class ProduitType extends AbstractType 
 { 
     public function buildForm(FormBuilderInterface $builder, 
@@ -30,23 +28,33 @@ array $options): void
  
             ->add('lienImage', FileType::class, 
                 array('label' => 'Image :', 'required' => false, 
-'data_class' => null, 
-                    'empty_data' => 'aucune image')) 
- 
-            // ->add('reference') 
-            // ->add('distributeurs') 
-        ; 
-        $builder->get('rupture') 
-    ->addModelTransformer(new CallbackTransformer( 
-        function ($activeAsString) { 
-            // transform the int to boolean 
-            return (bool)(int)$activeAsString; 
-        }, 
-        function ($activeAsBoolean) { 
-            // transform the boolean to string 
-            return (int)(bool)$activeAsBoolean; 
-        } 
-    )); 
+                'data_class' => null,
+                    'empty_data' => 'aucune image'))
+
+            ->add('reference',ReferenceType::class, array(
+
+                'label' =>'Référence du poduit',
+                "required"  => false
+            ))
+
+            ->add('distributeurs',CollectionType::Class,
+                array('entry_type' => DistributeurType::class,
+                    'allow_add' => true,
+                    'allow_delete' =>true,
+                    'by_reference' => false,
+                    'label' => false
+                ));
+
+
+//        $builder->get('rupture')
+//    ->addModelTransformer(new CallbackTransformer(
+//        function ($activeAsString) {
+//            // transform the int to boolean
+//            return (bool)(int)$activeAsString;},
+//        function ($activeAsBoolean) {
+//            // transform the boolean to string
+//            return (int)(bool)$activeAsBoolean;}
+//    ));
  
     } 
  

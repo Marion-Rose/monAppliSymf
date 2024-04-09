@@ -1,5 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
-const UxReactLoaderPlugin = require('@symfony/ux-react-loader');
+//const UxReactLoaderPlugin = require('@symfony/ux-react-loader');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -27,7 +27,7 @@ Encore
     .splitEntryChunks()
 
     .enableReactPreset()
-    .addPlugin(new UxReactLoaderPlugin())
+    //.addPlugin(new UxReactLoaderPlugin())
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

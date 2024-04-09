@@ -456,7 +456,13 @@
       <tag name="doctrine.fixture.orm"/>
     </service>
     <service id="App\Data\ListeProduits" class="App\Data\ListeProduits" autowire="true" autoconfigure="true"/>
+    <service id="App\Form\DistributeurType" class="App\Form\DistributeurType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
     <service id="App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+    </service>
+    <service id="App\Form\ReferenceType" class="App\Form\ReferenceType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Repository\DistributeurRepository" class="App\Repository\DistributeurRepository" autowire="true" autoconfigure="true">
@@ -501,7 +507,7 @@
     </service>
     <service id="argument_resolver.service" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
       <tag priority="-50" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">controller.argument_value_resolver</tag>
-      <argument type="service" id=".service_locator.2XAPwK9"/>
+      <argument type="service" id=".service_locator.pIGjz6T"/>
     </service>
     <service id="argument_resolver.default" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">
       <tag priority="-100" name="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver">controller.argument_value_resolver</tag>
@@ -1392,7 +1398,9 @@
         <argument>EasyCorp\Bundle\EasyAdminBundle\Form\Type</argument>
       </argument>
       <argument type="collection">
+        <argument>App\Form\DistributeurType</argument>
         <argument>App\Form\ProduitType</argument>
+        <argument>App\Form\ReferenceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\ChoiceType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FileType</argument>
@@ -3185,7 +3193,7 @@
     </service>
     <service id="argument_resolver.not_tagged_controller" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
       <tag name="controller.argument_value_resolver" priority="-200"/>
-      <argument type="service" id=".service_locator.2XAPwK9"/>
+      <argument type="service" id=".service_locator.pIGjz6T"/>
     </service>
     <service id="debug.log_processor" class="Symfony\Bridge\Monolog\Processor\DebugProcessor">
       <argument type="service" id="request_stack"/>
@@ -3682,7 +3690,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator.giDevry"/>
+      <argument type="service" id=".service_locator.CUx9Zld"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -7356,8 +7364,12 @@
     <service id=".abstract.instanceof.App\DataFixtures\ProduitFixtures" class="App\DataFixtures\ProduitFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UpdateImgProduitFixtures" class="App\DataFixtures\UpdateImgProduitFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\UpdateImgProduitFixtures" class="App\DataFixtures\UpdateImgProduitFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\DistributeurType" class="App\Form\DistributeurType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\DistributeurType" class="App\Form\DistributeurType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ProduitType" class="App\Form\ProduitType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ReferenceType" class="App\Form\ReferenceType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\ReferenceType" class="App\Form\ReferenceType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\DistributeurRepository" class="App\Repository\DistributeurRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\DistributeurRepository" class="App\Repository\DistributeurRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ProduitRepository" class="App\Repository\ProduitRepository" autowire="true" abstract="true"/>
@@ -7894,9 +7906,10 @@
         <argument key="chartBuilder" type="service_closure" id="chartjs.builder"/>
       </argument>
     </service>
-    <service id=".service_locator.2XAPwK9" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.pIGjz6T" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Controller\AdminController::delete" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\AdminController::insert" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\AdminController::update" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\DashboardController::configureUserMenu" type="service_closure" id=".service_locator.t7nLwyX"/>
@@ -7971,6 +7984,7 @@
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::loadRoutes" type="service_closure" id=".service_locator.y4_Zrx."/>
         <argument key="kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.y4_Zrx."/>
+        <argument key="App\Controller\AdminController:delete" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\AdminController:insert" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\AdminController:update" type="service_closure" id=".service_locator.CsMkqUa"/>
         <argument key="App\Controller\Admin\DashboardController:configureUserMenu" type="service_closure" id=".service_locator.t7nLwyX"/>
@@ -8210,10 +8224,12 @@
       <argument type="service" id="argument_resolver.query_parameter_value_resolver"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator.giDevry" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.CUx9Zld" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
+        <argument key="App\Form\DistributeurType" type="service_closure" id="App\Form\DistributeurType"/>
         <argument key="App\Form\ProduitType" type="service_closure" id="App\Form\ProduitType"/>
+        <argument key="App\Form\ReferenceType" type="service_closure" id="App\Form\ReferenceType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FileUploadType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FiltersFormType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\FiltersFormType"/>
@@ -10304,7 +10320,7 @@
     <service id="EasyCorp\Bundle\EasyAdminBundle\Contracts\Orm\EntityPaginatorInterface" alias="EasyCorp\Bundle\EasyAdminBundle\Orm\EntityPaginator"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.7nzbL4K" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.2XAPwK9"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.pIGjz6T"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.KLVvNIq"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
@@ -10330,9 +10346,9 @@
     <service id=".service_locator.twrFs.m" alias=".service_locator.jwjltq_"/>
     <service id=".service_locator.lng3o3t" alias=".service_locator.yR6jqeD"/>
     <service id=".service_locator.Lazlz4J" alias=".service_locator.jG5xrFj"/>
-    <service id=".service_locator.oUPrjYA" alias=".service_locator.2XAPwK9"/>
+    <service id=".service_locator.62f1whd" alias=".service_locator.pIGjz6T"/>
     <service id=".service_locator.BFrsqsn" alias=".service_locator.F9PKc.7"/>
-    <service id=".service_locator.Itffm8R" alias=".service_locator.giDevry"/>
+    <service id=".service_locator.uF0NztG" alias=".service_locator.CUx9Zld"/>
     <service id=".service_locator.XtmiKbi" alias=".service_locator.MfxSDRP"/>
     <service id=".service_locator.O24_MAy" alias=".service_locator.yY.p4P7"/>
     <service id=".service_locator.jUv.zyj" alias=".service_locator.O2p6Lk7"/>

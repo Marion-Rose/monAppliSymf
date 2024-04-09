@@ -184,7 +184,15 @@ class __TwigTemplate_45adb6b72bb527f63632d8a4ae164f3a extends Template
            </li> 
     </ul> 
     <div class=\"card-body\"> 
-           <a href=\"#\" class=\"btn btn-primary\">Ajouter au Panier</a> 
+           <a href=\"#\" class=\"btn btn-primary\">Ajouter au Panier</a>
+        <a class=\"btn btn-warning mt-2\" href=\"";
+            // line 45
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("update", ["id" => twig_get_attribute($this->env, $this->source, $context["produit"], "id", [], "any", false, false, false, 45)]), "html", null, true);
+            echo "\">Editer le produit</a>
+        <a class=\"btn btn-danger mt-2\" href=\"";
+            // line 46
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("delete", ["id" => twig_get_attribute($this->env, $this->source, $context["produit"], "id", [], "any", false, false, false, 46)]), "html", null, true);
+            echo "\" >Supprimer le produit</a>
     </div> 
 </div> 
 </div> 
@@ -193,7 +201,7 @@ class __TwigTemplate_45adb6b72bb527f63632d8a4ae164f3a extends Template
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['produit'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 48
+        // line 50
         echo " 
 </div> 
 ";
@@ -226,7 +234,7 @@ class __TwigTemplate_45adb6b72bb527f63632d8a4ae164f3a extends Template
      */
     public function getDebugInfo()
     {
-        return array (  197 => 48,  183 => 40,  178 => 39,  175 => 38,  169 => 36,  164 => 34,  159 => 31,  154 => 29,  150 => 28,  142 => 27,  136 => 26,  132 => 25,  127 => 22,  122 => 21,  117 => 19,  111 => 16,  105 => 13,  98 => 11,  91 => 7,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  205 => 50,  194 => 46,  190 => 45,  183 => 40,  178 => 39,  175 => 38,  169 => 36,  164 => 34,  159 => 31,  154 => 29,  150 => 28,  142 => 27,  136 => 26,  132 => 25,  127 => 22,  122 => 21,  117 => 19,  111 => 16,  105 => 13,  98 => 11,  91 => 7,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -274,12 +282,14 @@ class __TwigTemplate_45adb6b72bb527f63632d8a4ae164f3a extends Template
            </li> 
     </ul> 
     <div class=\"card-body\"> 
-           <a href=\"#\" class=\"btn btn-primary\">Ajouter au Panier</a> 
+           <a href=\"#\" class=\"btn btn-primary\">Ajouter au Panier</a>
+        <a class=\"btn btn-warning mt-2\" href=\"{{ path('update', {'id': produit.id }) }}\">Editer le produit</a>
+        <a class=\"btn btn-danger mt-2\" href=\"{{ path('delete', {'id': produit.id }) }}\" >Supprimer le produit</a>
     </div> 
 </div> 
 </div> 
 {% endfor %} 
 </div> 
-{% endblock %} ", "liste_produits/index.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\liste_produits\\index.html.twig");
+{% endblock %} ", "liste_produits/index.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\liste_produits\\index.html.twig");
     }
 }

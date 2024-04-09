@@ -83,6 +83,6 @@ class __TwigTemplate_db22b1bfefdeae6ebf67a93516ea5fef extends Template
     <line x1=\"12\" y1=\"17\" x2=\"12.01\" y2=\"17\"></line>
     <line x1=\"12\" y1=\"11\" x2=\"12\" y2=\"14\"></line>
 </svg>
-", "@WebProfiler/Icon/logger.svg", "C:\\wamp64\\www\\monAppliSymf - Copie\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\logger.svg");
+", "@WebProfiler/Icon/logger.svg", "C:\\wamp64\\www\\monAppliSymf\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\logger.svg");
     }
 }

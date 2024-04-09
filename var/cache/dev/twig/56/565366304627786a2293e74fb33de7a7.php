@@ -269,6 +269,6 @@ class __TwigTemplate_91ac6c223371d8a7711c1a7ee45deafe extends Template
     {% endverbatim %} 
 
     <div {{ react_component('MonComposant', { 'fullName': 'Yves' }) }}></div> 
-{% endblock %} ", "test/hello.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\test\\hello.html.twig");
+{% endblock %} ", "test/hello.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\test\\hello.html.twig");
     }
 }

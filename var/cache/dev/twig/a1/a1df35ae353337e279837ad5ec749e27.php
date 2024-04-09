@@ -229,6 +229,6 @@ class __TwigTemplate_37cfcaf14323ecda95bf730416a45f76 extends Template
         {% endblock %}
         {% include 'footer.html.twig' %}
     </body>
-</html>", "base.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\base.html.twig");
+</html>", "base.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\base.html.twig");
     }
 }

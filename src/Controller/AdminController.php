@@ -101,13 +101,20 @@ class AdminController extends AbstractController
             return $this->redirect($this->generateUrl('liste')); 
         } 
         
-        return $this->render('Admin/create.html.twig', array('my_form'=>$formProduit->createView())); 
+        return $this->render('administration/create.html.twig', array('my_form'=>$formProduit->createView()));
  
     } 
 
     #[Route("/delete/{id}", name:"delete")] 
-    public function delete(Request $request, $id) 
-    { 
- 
+    public function delete(Request $request, $id, EntityManagerInterface $entityManager)
+    {
+        $produitRepository=$entityManager->getRepository(Produit::class);
+        $produit=$produitRepository->find($id);
+        $entityManager->remove($produit);
+        $entityManager->flush();
+        $session=$request->getSession();
+        $session->getFlashBag()->add('message','le produit a été supprimé');
+        $session->set('statut','success');
+        return $this->redirect($this->generateUrl('liste'));
     } 
 } 

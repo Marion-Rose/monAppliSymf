@@ -559,6 +559,6 @@ class __TwigTemplate_613acf28ffd9d95f4430c589535c99f8 extends Template
         </a>
     {% endif %}
 {% endmacro %}
-", "@EasyAdmin/menu.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\menu.html.twig");
+", "@EasyAdmin/menu.html.twig", "C:\\wamp64\\www\\monAppliSymf\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\menu.html.twig");
     }
 }
