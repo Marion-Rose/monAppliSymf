@@ -30,9 +30,6 @@ return [
         '/register' => [[['_route' => 'register', '_controller' => 'App\\Controller\\RegisterController::register'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
-        '/test' => [[['_route' => 'app_test', '_controller' => 'App\\Controller\\TestController::index'], null, ['GET' => 0, 'HEAD' => 1], null, false, false, null]],
-        '/mylog' => [[['_route' => 'app_test_list', '_controller' => 'App\\Controller\\TestController::list'], null, null, null, false, false, null]],
-        '/message' => [[['_route' => 'app_test_message', '_controller' => 'App\\Controller\\TestController::message'], null, null, null, false, false, null]],
         '/testroute' => [[['_route' => 'index', '_controller' => 'App\\Controller\\TestController::index'], null, null, null, false, false, null]],
     ],
     [ // $regexpList
@@ -95,7 +92,6 @@ return [
                 .')'
                 .'|/update/([^/]++)(*:743)'
                 .'|/delete/([^/]++)(*:767)'
-                .'|/hello/([^/]++)/([a-z]{2,50})(?:/([^/]++))?(*:818)'
             .')/?$}sDu',
     ],
     [ // $dynamicRoutes
@@ -143,9 +139,8 @@ return [
         707 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception_panel::stylesheet'], ['token'], null, null, false, false, null]],
         717 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
         743 => [[['_route' => 'update', '_controller' => 'App\\Controller\\AdminController::update'], ['id'], null, null, false, true, null]],
-        767 => [[['_route' => 'delete', '_controller' => 'App\\Controller\\AdminController::delete'], ['id'], null, null, false, true, null]],
-        818 => [
-            [['_route' => 'hello', 'prenom' => '', '_controller' => 'App\\Controller\\TestController::hello'], ['age', 'nom', 'prenom'], null, null, false, true, null],
+        767 => [
+            [['_route' => 'delete', '_controller' => 'App\\Controller\\AdminController::delete'], ['id'], null, null, false, true, null],
             [null, null, null, null, false, false, 0],
         ],
     ],

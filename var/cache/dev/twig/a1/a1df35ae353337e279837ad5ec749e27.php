@@ -69,19 +69,15 @@ class __TwigTemplate_37cfcaf14323ecda95bf730416a45f76 extends Template
         ";
         // line 19
         $this->loadTemplate("header.html.twig", "base.html.twig", 19)->display($context);
-        echo " 
-        <h3>Auteur: ";
         // line 20
-        echo twig_escape_filter($this->env, (isset($context["auteur"]) || array_key_exists("auteur", $context) ? $context["auteur"] : (function () { throw new RuntimeError('Variable "auteur" does not exist.', 20, $this->source); })()), "html", null, true);
-        echo "</h3>
-        
+        echo "        
         ";
-        // line 22
+        // line 21
         $this->displayBlock('body', $context, $blocks);
-        // line 25
+        // line 24
         echo "        ";
-        $this->loadTemplate("footer.html.twig", "base.html.twig", 25)->display($context);
-        // line 26
+        $this->loadTemplate("footer.html.twig", "base.html.twig", 24)->display($context);
+        // line 25
         echo "    </body>
 </html>";
         
@@ -161,7 +157,7 @@ class __TwigTemplate_37cfcaf14323ecda95bf730416a45f76 extends Template
 
     }
 
-    // line 22
+    // line 21
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -171,7 +167,7 @@ class __TwigTemplate_37cfcaf14323ecda95bf730416a45f76 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 23
+        // line 22
         echo "        
         ";
         
@@ -203,7 +199,7 @@ class __TwigTemplate_37cfcaf14323ecda95bf730416a45f76 extends Template
      */
     public function getDebugInfo()
     {
-        return array (  175 => 23,  165 => 22,  152 => 14,  142 => 13,  130 => 10,  125 => 9,  115 => 8,  96 => 5,  85 => 26,  82 => 25,  80 => 22,  75 => 20,  71 => 19,  66 => 16,  64 => 13,  61 => 12,  58 => 8,  53 => 5,  47 => 1,);
+        return array (  171 => 22,  161 => 21,  148 => 14,  138 => 13,  126 => 10,  121 => 9,  111 => 8,  92 => 5,  81 => 25,  78 => 24,  76 => 21,  73 => 20,  71 => 19,  66 => 16,  64 => 13,  61 => 12,  58 => 8,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -226,8 +222,7 @@ class __TwigTemplate_37cfcaf14323ecda95bf730416a45f76 extends Template
     </head>
     <body>
         
-        {% include 'header.html.twig' %} 
-        <h3>Auteur: {{ auteur }}</h3>
+        {% include 'header.html.twig' %}
         
         {% block body %}
         

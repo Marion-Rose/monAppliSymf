@@ -40,8 +40,8 @@ class __TwigTemplate_c899c7777376b8670f25512ee913bfff extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "footer.html.twig"));
 
         // line 1
-        echo " <p>Posté par Albert, le  
-      <time datetime=\"2023-11-02\">2 Novembre 2023</time> 
+        echo " <p>
+      Site en cours de construction
 </p>";
         
         $__internal_5a27a8ba21ca79b61932376b2fa922d2->leave($__internal_5a27a8ba21ca79b61932376b2fa922d2_prof);
@@ -69,8 +69,8 @@ class __TwigTemplate_c899c7777376b8670f25512ee913bfff extends Template
 
     public function getSourceContext()
     {
-        return new Source(" <p>Posté par Albert, le  
-      <time datetime=\"2023-11-02\">2 Novembre 2023</time> 
+        return new Source(" <p>
+      Site en cours de construction
 </p>", "footer.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\footer.html.twig");
     }
 }
