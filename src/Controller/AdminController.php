@@ -9,18 +9,23 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType; 
 use Symfony\Component\HttpFoundation\JsonResponse; 
 use Symfony\Component\HttpFoundation\Request; 
-use Symfony\Component\Routing\Annotation\Route; 
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use App\Entity\Produit; 
-use App\Form\ProduitType; 
- 
+use App\Form\ProduitType;
+
+
 class AdminController extends AbstractController 
 { 
-    #[Route('/insert', name:'insert')] 
+    #[Route('/insert', name:'insert')]
+    #[Route("/admin")]
+    #[IsGranted('ROLE_ADMIN')]
     function insert(Request $request, EntityManagerInterface $entityManager) 
     { 
         $produit = new Produit; 
         $formProduit = $this->createForm(ProduitType::class, $produit); 
-        $formProduit->add('creer', SubmitType::class, array( 'label' => 'Insertion d\'un produit')); 
+        $formProduit->add('creer', SubmitType::class, array( 'label' => 'Insertion d\'un produit',
+            'validation_groups'=>array('registration', 'all')));
     
         $formProduit->handleRequest($request); 
     
@@ -57,7 +62,9 @@ class AdminController extends AbstractController
         return $this->render('administration/create.html.twig', array('my_form' => $formProduit->createView())); 
     } 
 
-    #[Route("/update/{id}", name:"update")] 
+    #[Route("/update/{id}", name:"update")]
+    #[Route("/admin")]
+    #[IsGranted('ROLE_ADMIN')]
     function update(Request $request, $id,EntityManagerInterface $entityManager) 
     { 
  
@@ -70,7 +77,8 @@ class AdminController extends AbstractController
         // ajoute un bouton submit 
  
         $formProduit->add('creer', SubmitType::class,array( 
-            'label'=>'Mise à jour d\'un produit' 
+            'label'=>'Mise à jour d\'un produit',
+            'validation_groups'=>array('all')
         )); 
         $formProduit->handleRequest($request); 
  
@@ -101,13 +109,22 @@ class AdminController extends AbstractController
             return $this->redirect($this->generateUrl('liste')); 
         } 
         
-        return $this->render('Admin/create.html.twig', array('my_form'=>$formProduit->createView())); 
+        return $this->render('administration/create.html.twig', array('my_form'=>$formProduit->createView()));
  
     } 
 
-    #[Route("/delete/{id}", name:"delete")] 
-    public function delete(Request $request, $id) 
-    { 
- 
+    #[Route("/delete/{id}", name:"delete")]
+    #[Route("/admin")]
+    #[IsGranted('ROLE_ADMIN')]
+    public function delete(Request $request, $id, EntityManagerInterface $entityManager)
+    {
+        $produitRepository=$entityManager->getRepository(Produit::class);
+        $produit=$produitRepository->find($id);
+        $entityManager->remove($produit);
+        $entityManager->flush();
+        $session=$request->getSession();
+        $session->getFlashBag()->add('message','le produit a été supprimé');
+        $session->set('statut','success');
+        return $this->redirect($this->generateUrl('liste'));
     } 
 } 

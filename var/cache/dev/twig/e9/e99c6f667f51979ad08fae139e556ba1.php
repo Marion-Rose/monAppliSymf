@@ -86,6 +86,6 @@ class __TwigTemplate_7c861b8484ef5cac9b8270903794bebb extends Template
 {# @var field \\EasyCorp\\Bundle\\EasyAdminBundle\\Dto\\FieldDto #}
 {# @var entity \\EasyCorp\\Bundle\\EasyAdminBundle\\Dto\\EntityDto #}
 <time datetime=\"{{ field.value|date('c') }}\" title=\"{{ field.value|date('r') }}\">{{ field.formattedValue }}</time>
-", "@EasyAdmin/crud/field/date.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\crud\\field\\date.html.twig");
+", "@EasyAdmin/crud/field/date.html.twig", "C:\\wamp64\\www\\monAppliSymf\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\crud\\field\\date.html.twig");
     }
 }

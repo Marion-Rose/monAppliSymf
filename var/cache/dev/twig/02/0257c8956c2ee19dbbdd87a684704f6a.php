@@ -159,6 +159,6 @@ class __TwigTemplate_c1a9964d698ba280b839c63741a6738a extends Template
  
             {% endfor %} 
     </div> 
-{% endblock %} ", "liste_produits/eager.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\liste_produits\\eager.html.twig");
+{% endblock %} ", "liste_produits/eager.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\liste_produits\\eager.html.twig");
     }
 }

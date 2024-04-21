@@ -96,6 +96,6 @@ class __TwigTemplate_45717f06f313616184418c51b6e290ab extends Template
 {% else %}
     {{ field.formattedValue }}
 {% endif %}
-", "@EasyAdmin/crud/field/collection.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\crud\\field\\collection.html.twig");
+", "@EasyAdmin/crud/field/collection.html.twig", "C:\\wamp64\\www\\monAppliSymf\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\crud\\field\\collection.html.twig");
     }
 }

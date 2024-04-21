@@ -157,6 +157,6 @@ class __TwigTemplate_5a08e64b42ce69c93e68d00af4f2bfdc extends Template
     </ul>
 </div>
 {% endblock %}
-", "admin/index.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\admin\\index.html.twig");
+", "admin/index.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\admin\\index.html.twig");
     }
 }

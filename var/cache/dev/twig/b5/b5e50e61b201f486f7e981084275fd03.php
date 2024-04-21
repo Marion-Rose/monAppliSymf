@@ -79,6 +79,6 @@ class __TwigTemplate_79181bfc5113de61b61d2326efb7ecff extends Template
     <line x1=\"4\" y1=\"10\" x2=\"20\" y2=\"10\" />
     <line x1=\"10\" y1=\"4\" x2=\"10\" y2=\"20\" />
 </svg>
-", "@EasyAdmin/inspector/icon-v3.svg.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\inspector\\icon-v3.svg.twig");
+", "@EasyAdmin/inspector/icon-v3.svg.twig", "C:\\wamp64\\www\\monAppliSymf\\vendor\\easycorp\\easyadmin-bundle\\src\\Resources\\views\\inspector\\icon-v3.svg.twig");
     }
 }

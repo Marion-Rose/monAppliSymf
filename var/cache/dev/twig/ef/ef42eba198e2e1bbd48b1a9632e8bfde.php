@@ -71,6 +71,6 @@ class __TwigTemplate_c899c7777376b8670f25512ee913bfff extends Template
     {
         return new Source(" <p>Posté par Albert, le  
       <time datetime=\"2023-11-02\">2 Novembre 2023</time> 
-</p>", "footer.html.twig", "C:\\wamp64\\www\\monAppliSymf - Copie\\templates\\footer.html.twig");
+</p>", "footer.html.twig", "C:\\wamp64\\www\\monAppliSymf\\templates\\footer.html.twig");
     }
 }
