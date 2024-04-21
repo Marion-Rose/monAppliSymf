@@ -56,9 +56,5 @@ return [
     'register' => [[], ['_controller' => 'App\\Controller\\RegisterController::register'], [], [['text', '/register']], [], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], [], []],
-    'app_test' => [[], ['_controller' => 'App\\Controller\\TestController::index'], [], [['text', '/test']], [], [], []],
-    'hello' => [['age', 'nom', 'prenom'], ['prenom' => '', '_controller' => 'App\\Controller\\TestController::hello'], ['nom' => '[a-z]{2,50}'], [['variable', '/', '[^/]++', 'prenom', true], ['variable', '/', '[a-z]{2,50}', 'nom', true], ['variable', '/', '[^/]++', 'age', true], ['text', '/hello']], [], [], []],
-    'app_test_list' => [[], ['_controller' => 'App\\Controller\\TestController::list'], [], [['text', '/mylog']], [], [], []],
-    'app_test_message' => [[], ['_controller' => 'App\\Controller\\TestController::message'], [], [['text', '/message']], [], [], []],
     'index' => [[], ['_controller' => 'App\\Controller\\TestController::index'], [], [['text', '/testroute']], [], [], []],
 ];
