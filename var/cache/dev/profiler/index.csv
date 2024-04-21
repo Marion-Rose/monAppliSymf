@@ -8,3 +8,10 @@ c4cf33,::1,GET,https://localhost:8000/liste,1713713019,,200
 6fcb8a,::1,GET,https://localhost:8000/liste,1713713343,,200
 4dd8c2,::1,GET,https://localhost:8000/liste,1713713357,,200
 8b5cb7,::1,GET,https://localhost:8000/liste,1713713371,,200
+755006,::1,GET,https://localhost:8000/login,1713713712,,200
+d03fb4,::1,GET,https://localhost:8000/logout,1713713715,,302
+d118c3,::1,GET,https://localhost:8000/,1713713715,,404
+cc89c6,::1,GET,https://localhost:8000/login,1713713720,,200
+be1929,::1,GET,https://localhost:8000/login,1713713930,,200
+e96554,::1,POST,https://localhost:8000/login,1713713941,,302
+cf3a12,::1,GET,https://localhost:8000/liste,1713713942,,200
