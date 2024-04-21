@@ -9,7 +9,10 @@ use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface; 
 use App\Entity\Produit;
 use App\Entity\Distributeur;
- 
+
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 class ListeProduitsController extends AbstractController 
 { 
     #[Route('/liste', name: 'liste')] 
@@ -46,6 +49,18 @@ class ListeProduitsController extends AbstractController
                 'listeproduits' => $listeProduits, 
     
             ]); 
-    } 
- 
+    }
+
+    #[Route("/apitest", name:"apitest")]
+    public function apiTest(EntityManagerInterface $entityManager)
+    {
+        $produitsRepository=$entityManager->getRepository(Produit::class);
+        $listeProduits=$produitsRepository->findAll();
+        $resultat=[];
+        foreach($listeProduits as $produit){
+            array_push($resultat, $produit->getNom());
+        }
+        $reponse=new JsonResponse($resultat);
+        return $reponse;
+    }
 } 

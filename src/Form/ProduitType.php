@@ -2,6 +2,9 @@
 namespace App\Form;
 
 use App\Entity\Produit;
+use \Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Entity\Distributeur;
+use App\Form\Type\MyCheckboxType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,11 +24,11 @@ array $options): void
             ->add('prix', NumberType::class, array('label' => 'Prix :')) 
  
             ->add('quantite', NumberType::class, 
-                array('label' => 'Quantité :')) 
- 
-            ->add('rupture', CheckboxType::class, 
-                array('label' => 'Rupture de stock ?', 'required' => false)) 
- 
+                array('label' => 'Quantité :'))
+
+            ->add('rupture',MyCheckboxType::class,
+                array('label'    => 'Rupture de stock ?','required' => false))
+
             ->add('lienImage', FileType::class, 
                 array('label' => 'Image :', 'required' => false, 
                 'data_class' => null,
@@ -37,14 +40,21 @@ array $options): void
                 "required"  => false
             ))
 
-            ->add('distributeurs',CollectionType::Class,
-                array('entry_type' => DistributeurType::class,
-                    'allow_add' => true,
-                    'allow_delete' =>true,
-                    'by_reference' => false,
-                    'label' => false
-                ));
+//            ->add('distributeurs',CollectionType::Class,
+//                array('entry_type' => DistributeurType::class,
+//                    'allow_add' => true,
+//                    'allow_delete' =>true,
+//                    'by_reference' => false,
+//                    'label' => false
+//                ));
 
+            ->add('distributeurs',EntityType::Class,array(
+                'class' => Distributeur::class,
+                'choice_label'=>'nom',
+                'label' =>'Selection des distributeurs',
+                'multiple' => true,
+                'required' => false
+            ));
 
 //        $builder->get('rupture')
 //    ->addModelTransformer(new CallbackTransformer(

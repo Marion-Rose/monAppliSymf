@@ -2,12 +2,19 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\ApiResource;
 use App\Repository\ProduitRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+use App\Validator as AcmeAssert;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
-#[ORM\Entity(repositoryClass: ProduitRepository::class)]
+#[ORM\Entity(repositoryClass: ProduitRepository::class),
+    UniqueEntity(fields:"nom",message:"erreur produit déjà existant dans la base",groups:["registration"])]
+#[ApiResource]
 class Produit
 {
     #[ORM\Id]
@@ -16,6 +23,16 @@ class Produit
     private ?int $id = null;
 
     #[ORM\Column(length: 200)]
+    #[Assert\Length(
+        min: 2,
+        max: 50,
+        minMessage: 'Votre nom doit faire au moins {{ limit }} caractères',
+        maxMessage: 'Votre nom ne doit pas dépasser {{ limit }} caractères',
+        groups: ["all"]
+    )]
+    #[AcmeAssert\Antispam(
+        groups: ["all"]
+    )]
     private ?string $nom = null;
 
     #[ORM\Column]
@@ -145,6 +162,37 @@ class Produit
         return $this;
     }
 
-    
+    #[Assert\IsTrue(message:"Erreur valeurs négatives sur le prix ou la quantité")]
+    public function isPrixQuantiteValid()
+    {
+        if (is_float($this->getPrix()) &&
+            (is_int($this->getQuantite()))
+            && ($this->getPrix() > 0) && ($this->getQuantite() > 0)) {
+
+            return true;
+
+        } else {
+
+            return false;
+
+        }
+
+    }
+
+    #[Assert\Callback()]
+    public function isContentValid(ExecutionContextInterface $context)
+    {
+        $forbiddenWords= array('arme','médicament','drogue');
+
+        if(preg_match('#'.implode('|',$forbiddenWords).'#i', $this->getNom())){
+
+            // erreur de validation
+
+            $context->buildViolation('Le produit est interdit à la vente')
+                ->atPath('produit')
+                ->addViolation();
+        }
+
+    }
 
 }

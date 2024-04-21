@@ -7,7 +7,9 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Cookie; 
 use Symfony\Component\Routing\Annotation\Route; 
 use Symfony\UX\Chartjs\Builder\ChartBuilderInterface; 
-use Symfony\UX\Chartjs\Model\Chart; 
+use Symfony\UX\Chartjs\Model\Chart;
+use Psr\Log\LoggerInterface;
+use App\Service\MessageGenerator;
 class TestController extends AbstractController 
 { 
     #[Route('/test', name: 'app_test',methods: ['GET', 'HEAD'] )] 
@@ -75,5 +77,19 @@ Request $request, int $age, $nom, $prenom='')
         ]); 
 
         
-    } 
+    }
+
+    #[Route("mylog")]
+    public function list(LoggerInterface $logger)
+    {
+        $logger->info('Et voilà ! j\'utilise le service loggerInterface !');
+        return new Response('OK') ;
+    }
+
+    #[Route("/message")]
+    public function message(MessageGenerator $message)
+    {
+        return new Response($message->getHappyMessage());
+    }
+
 } 
