@@ -1,9 +1,16 @@
 <?php 
-namespace App\Data; 
- 
-class ListeProduits 
-{ 
-    static $mesProduits= [ 
+namespace App\Data;
+
+
+/**
+ * Class ListeProduits
+ */
+class ListeProduits
+{
+    /**
+     * @var array[]
+     */
+    static $mesProduits= [
         [ "nom"=>"imprimantes", "prix"=>700, "quantite"=>10, "rupture"=>false], 
         [ "nom"=>"cartouches encre", "prix"=>80, "quantite"=>50, "rupture"=>false], 
         [ "nom"=>"ordinateurs", "prix"=>1700, "quantite"=>3, "rupture"=>false], 

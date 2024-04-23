@@ -5,12 +5,21 @@ namespace App\DataFixtures;
 use App\Entity\Produit; 
 use Doctrine\Bundle\FixturesBundle\Fixture; 
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface; 
-use Doctrine\Persistence\ObjectManager; 
- 
-class UpdateImgProduitFixtures extends Fixture implements 
-FixtureGroupInterface 
-{ 
-    public function load(ObjectManager $manager): void 
+use Doctrine\Persistence\ObjectManager;
+
+
+/**
+ * Class UpdateProduitFixtures
+ * @extends Fixture
+ * @implements FixtureGroupInterface
+ */
+class UpdateImgProduitFixtures extends Fixture implements FixtureGroupInterface
+{
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function load(ObjectManager $manager): void
     { 
  
         $repProduit = $manager->getRepository(Produit::class); 
@@ -42,8 +51,12 @@ FixtureGroupInterface
         } 
         $manager->flush(); 
  
-    } 
-    public static function getGroups(): array 
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getGroups(): array
     { 
      return ['group1']; 
     } 

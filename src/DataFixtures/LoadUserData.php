@@ -11,17 +11,33 @@ use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-// class LoadImmatriculationsData extends Fixture
-// {
+
+
+/**
+ * Class LoadUserData
+ * @extends Fixture
+ * @implements FixtureGroupInterface
+ */
 class LoadUserData extends Fixture implements FixtureGroupInterface
 {
+    /**
+     * @var UserPasswordHasherInterface
+     */
     protected $encoder;
+
+    /**
+     * @param UserPasswordHasherInterface $encoder
+     */
     public function __construct(UserPasswordHasherInterface $encoder )
     {
         $this->encoder=$encoder;
 
     }
 
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     */
     public function load(ObjectManager $manager)
     {
         $users=[['username'=>'lucas','password'=>'adminpass','apitoken'=>
@@ -46,6 +62,10 @@ class LoadUserData extends Fixture implements FixtureGroupInterface
 
 
     }
+
+    /**
+     * @return string[]
+     */
     public static function getGroups():array
     {
 

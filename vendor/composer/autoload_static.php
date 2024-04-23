@@ -46,6 +46,7 @@ class ComposerStaticInit3d7aaf1866df64911154060e3a32f321
             'Symfony\\UX\\React\\' => 17,
             'Symfony\\UX\\Chartjs\\' => 19,
             'Symfony\\Runtime\\Symfony\\Component\\' => 34,
+            'Symfony\\Requirements\\' => 21,
             'Symfony\\Polyfill\\Uuid\\' => 22,
             'Symfony\\Polyfill\\Php83\\' => 23,
             'Symfony\\Polyfill\\Mbstring\\' => 26,
@@ -212,6 +213,10 @@ class ComposerStaticInit3d7aaf1866df64911154060e3a32f321
         'Symfony\\Runtime\\Symfony\\Component\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/runtime/Internal',
+        ),
+        'Symfony\\Requirements\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/requirements-checker/src',
         ),
         'Symfony\\Polyfill\\Uuid\\' => 
         array (
