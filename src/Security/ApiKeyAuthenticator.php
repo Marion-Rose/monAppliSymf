@@ -15,6 +15,11 @@ use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ObjectManager;
 use App\Entity\User;
 
+
+/**
+ * Class ApiKeyAuthenticator
+ * @extends AbstractAuthenticator
+ */
 class ApiKeyAuthenticator extends AbstractAuthenticator
 {
     /**
@@ -26,10 +31,18 @@ class ApiKeyAuthenticator extends AbstractAuthenticator
     {
         return $request->headers->has('X-AUTH-TOKEN');
     }
+
+    /**
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(public EntityManagerInterface $entityManager)
     {
     }
 
+    /**
+     * @param Request $request
+     * @return Passport
+     */
     public function authenticate(Request $request): Passport
     {
         $apiToken = $request->headers->get('X-AUTH-TOKEN');
@@ -50,14 +63,25 @@ provided');
             }));
     }
 
+    /**
+     * @param Request $request
+     * @param TokenInterface $token
+     * @param string $firewallName
+     * @return Response|null
+     */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token,
-                                            string $firewallName): ?Response
+                                            string  $firewallName): ?Response
     {
         // on success, let the request continue
         return null;
     }
 
-    public function onAuthenticationFailure(Request $request,
+    /**
+     * @param Request $request
+     * @param AuthenticationException $exception
+     * @return Response|null
+     */
+    public function onAuthenticationFailure(Request                 $request,
                                             AuthenticationException $exception): ?Response
     {
         $data = [

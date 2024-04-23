@@ -15,8 +15,16 @@ use App\Entity\Produit;
 use App\Form\ProduitType;
 
 
-class AdminController extends AbstractController 
-{ 
+/**
+ * Controller Administration
+ */
+class AdminController extends AbstractController
+{
+    /**
+     * @param Request $request
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     #[Route('/insert', name:'insert')]
     #[Route("/admin")]
     #[IsGranted('ROLE_ADMIN')]
@@ -60,8 +68,14 @@ class AdminController extends AbstractController
         } 
 
         return $this->render('administration/create.html.twig', array('my_form' => $formProduit->createView())); 
-    } 
+    }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     */
     #[Route("/update/{id}", name:"update")]
     #[Route("/admin")]
     #[IsGranted('ROLE_ADMIN')]
@@ -111,8 +125,14 @@ class AdminController extends AbstractController
         
         return $this->render('administration/create.html.twig', array('my_form'=>$formProduit->createView()));
  
-    } 
+    }
 
+    /**
+     * @param Request $request
+     * @param $id
+     * @param EntityManagerInterface $entityManager
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     #[Route("/delete/{id}", name:"delete")]
     #[Route("/admin")]
     #[IsGranted('ROLE_ADMIN')]

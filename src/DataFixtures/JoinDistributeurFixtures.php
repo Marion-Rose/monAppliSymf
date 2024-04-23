@@ -6,12 +6,22 @@ use App\Entity\Distributeur;
 use App\Entity\Produit; 
 use Doctrine\Bundle\FixturesBundle\Fixture; 
 use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface; 
-use Doctrine\Persistence\ObjectManager; 
- 
-class JoinDistributeurFixtures extends Fixture implements FixtureGroupInterface 
-{ 
- 
-    public function load(ObjectManager $manager) 
+use Doctrine\Persistence\ObjectManager;
+
+
+/**
+ * Class JoinDistributeurFixtures
+ * @extends Fixture
+ * @implements FixtureGroupInterface
+ */
+class JoinDistributeurFixtures extends Fixture implements FixtureGroupInterface
+{
+
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function load(ObjectManager $manager)
     { 
  
         $repProduit = $manager->getRepository(Produit::class); 
@@ -65,14 +75,15 @@ class JoinDistributeurFixtures extends Fixture implements FixtureGroupInterface
             $produit->addDistributeur($hp); 
  
             $manager->persist($produit); 
- 
-    // pas besoin du persist($distributeur)grâce au cascade= ‘persist'] 
- 
+
  
         $manager->flush(); 
-    } 
- 
-    public static function getGroups(): array 
+    }
+
+    /**
+     * @return string[]
+     */
+    public static function getGroups(): array
     { 
         return ['group3']; 
     } 

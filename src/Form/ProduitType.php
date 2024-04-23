@@ -14,10 +14,19 @@ use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 
-class ProduitType extends AbstractType 
-{ 
-    public function buildForm(FormBuilderInterface $builder, 
-array $options): void 
+
+/**
+ * Class ProduitType Form
+ */
+class ProduitType extends AbstractType
+{
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     * @return void
+     */
+    public function buildForm(FormBuilderInterface $builder,
+                              array                $options): void
     { 
         $builder 
             ->add('nom', TextType::class, array('label' => 'Nom produit :')) 
@@ -40,14 +49,6 @@ array $options): void
                 "required"  => false
             ))
 
-//            ->add('distributeurs',CollectionType::Class,
-//                array('entry_type' => DistributeurType::class,
-//                    'allow_add' => true,
-//                    'allow_delete' =>true,
-//                    'by_reference' => false,
-//                    'label' => false
-//                ));
-
             ->add('distributeurs',EntityType::Class,array(
                 'class' => Distributeur::class,
                 'choice_label'=>'nom',
@@ -55,20 +56,14 @@ array $options): void
                 'multiple' => true,
                 'required' => false
             ));
+ 
+    }
 
-//        $builder->get('rupture')
-//    ->addModelTransformer(new CallbackTransformer(
-//        function ($activeAsString) {
-//            // transform the int to boolean
-//            return (bool)(int)$activeAsString;},
-//        function ($activeAsBoolean) {
-//            // transform the boolean to string
-//            return (int)(bool)$activeAsBoolean;}
-//    ));
- 
-    } 
- 
-    public function configureOptions(OptionsResolver $resolver): void 
+    /**
+     * @param OptionsResolver $resolver
+     * @return void
+     */
+    public function configureOptions(OptionsResolver $resolver): void
     { 
         $resolver->setDefaults([ 
             'data_class' => Produit::class, 

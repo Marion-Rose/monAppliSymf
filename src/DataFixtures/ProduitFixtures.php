@@ -5,11 +5,20 @@ namespace App\DataFixtures;
 use Doctrine\Bundle\FixturesBundle\Fixture; 
 use Doctrine\Persistence\ObjectManager; 
 use App\Data\ListeProduits; 
-use App\Entity\Produit; 
- 
-class ProduitFixtures extends Fixture 
-{ 
-    public function load(ObjectManager $manager) : void 
+use App\Entity\Produit;
+
+
+/**
+ * Class ProduitFixtures
+ * @extends Fixture
+ */
+class ProduitFixtures extends Fixture
+{
+    /**
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function load(ObjectManager $manager) : void
     { 
  
         foreach( ListeProduits::$mesProduits as $monProduit ) { 
